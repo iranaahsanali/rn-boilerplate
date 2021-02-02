@@ -22,17 +22,11 @@ const Groups = () => {
     return (
         <View style={styles.container}>
             {
-                feedRequest.status == 'loading' && <Text>Loading...</Text>
+                feedRequest.status == 'loading' && <Text>API Fetching Data...</Text>
             }
             {
-                feedRequest.status == 'success' ? <Text>Got SUCCESS RESPONSE</Text> : <Text>Groups Screen</Text>
+                feedRequest.status == 'success' ? <Text>Got SUCCESS RESPONSE</Text> : <Text>Got FAILURE RESPONSE</Text>
             }
-            <TouchableOpacity onPress={() => {
-                navigation.navigate("Quiz", {});
-            }}>
-                <SettingsIcon />
-                <Text>GO to Next Screen.</Text>
-            </TouchableOpacity>
         </View>
     );
 };

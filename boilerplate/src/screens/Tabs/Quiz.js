@@ -6,9 +6,7 @@ const Quiz = () => {
     const feedRequest = useSelector(state => state.feed.listFeed);
     return (
         <View style={styles.container}>
-            {
-                feedRequest.status == 'success' ? <Text>{feedRequest.data.timezone}</Text> : <Text>Quiz Screen</Text>
-            }
+            <Text>Quiz Screen</Text>
         </View>
     );
 };

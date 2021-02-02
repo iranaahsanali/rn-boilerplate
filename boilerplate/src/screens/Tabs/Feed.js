@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const Feed = () => {
     return (
         <View style={styles.container}>
-            <Text>Groups Screen</Text>
+            <Text>Feed Screen</Text>
         </View>
     );
 };
