@@ -9,7 +9,6 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import Layout from '../../constants/Layout';
 import TextInputMask from 'react-native-text-input-mask';
 import Colors from '../../constants/Colors';
-import { isNil } from "ramda";
 
 export const InputContainer = props => (
     <View
