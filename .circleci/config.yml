@@ -163,14 +163,14 @@ workflows:
   node-android-ios:
     jobs:
       - android-hold: 
-        type: approval
+          type: approval
         filters:
           tags:
             only: /^v.*/
           branches:
             ignore: /.*/
       - ios-hold:
-        type: approval
+          type: approval
         filters:
           tags:
             only: /^v.*/
