@@ -1,7 +1,6 @@
 version: 2.1
 jobs:
   node:
-    working_directory: ~/repo
     docker:
       - image: cimg/node:15.3.0
 
