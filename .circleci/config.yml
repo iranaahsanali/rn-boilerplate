@@ -38,12 +38,12 @@ jobs:
           at: ~/repo
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
 
       - run: bundle install
 
       - save_cache:
-          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
 
