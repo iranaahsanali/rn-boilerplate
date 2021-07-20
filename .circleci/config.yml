@@ -1,6 +1,7 @@
 version: 2.1
 jobs:
   node:
+    working_directory: ~/repo
     docker:
       - image: cimg/node:15.3.0
 
@@ -9,7 +10,7 @@ jobs:
 
       - restore_cache:
                 keys:
-                  - v1-dependencies-{{ checksum "package.json" }}
+                  - v1-dependencies-{{ checksum "~/rn-boilerplate/boilerplate/package.json" }}
                   - v1-dependencies-
 
       - run: npm install
@@ -18,15 +19,13 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      
-      - store_test_results:
-          path: test-results
 
-      - store_artifacts:
-          path: test-results
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
         
   android-alpha:
-    working_directory: ~/rn-boilerplate/boilerplate/android
+    working_directory: ~/boilerplate/android
     docker:
       - image: circleci/android:api-29-node
     steps:
