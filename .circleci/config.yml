@@ -31,7 +31,7 @@ jobs:
           path: test-results
         
   android-alpha:
-    working_directory: ~/boilerplate/android
+    working_directory: ~/rn-boilerplate/boilerplate/android
     docker:
       - image: circleci/android:api-29-node
     steps:
