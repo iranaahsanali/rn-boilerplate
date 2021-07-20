@@ -26,11 +26,6 @@ jobs:
           key: node-v1-{{ checksum "package.json" }}-{{ arch }}
           paths:
             - node_modules
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths:
-            - node_modules
         
   android-alpha:
     working_directory: ~/repo/android
