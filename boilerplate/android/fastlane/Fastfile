@@ -19,4 +19,7 @@ platform :android do
   lane :alpha do
     gradle(task: "clean assembleRelease")
   end
+  lane :beta do
+    gradle(task: "clean assembleRelease")
+  end
 end
