@@ -10,10 +10,10 @@ jobs:
       - checkout
 
       - restore_cache:
-          key: npm-v1-{{ checksum "package-lock.json" }}-{{ arch }}
+          key: npm-v1-{{ checksum "boilerplate/package-lock.json" }}-{{ arch }}
 
       - restore_cache:
-          key: node-v1-{{ checksum "package.json" }}-{{ arch }}
+          key: node-v1-{{ checksum "boilerplate/package.json" }}-{{ arch }}
 
       - run: npm install
 
