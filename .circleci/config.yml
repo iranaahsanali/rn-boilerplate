@@ -27,7 +27,7 @@ jobs:
             - '*'
         
   android-alpha:
-    working_directory: ~/boilerplate/android
+    working_directory: ~/rn-boilerplate/boilerplate/android
     docker:
       - image: circleci/android:api-29-node
     steps:
@@ -38,12 +38,12 @@ jobs:
           at: ~/repo
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/rn-boilerplate/boilerplate/android/Gemfile.lock" }}-{{ arch }}
 
       - run: bundle install
 
       - save_cache:
-          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/rn-boilerplate/boilerplate/android/Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
 
