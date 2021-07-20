@@ -20,6 +20,10 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+      
       - store_test_results:
           path: test-results
 
@@ -35,7 +39,7 @@ jobs:
           path: ~/boilerplate
 
       - attach_workspace:
-          at: ~/boilerplate
+          at: ~/repo
 
       - restore_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
@@ -64,7 +68,7 @@ jobs:
           path: ~/boilerplate
 
       - attach_workspace:
-          at: ~/boilerplate
+          at: ~/repo
 
       - restore_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
