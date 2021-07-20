@@ -10,21 +10,27 @@ jobs:
       - checkout
 
       - restore_cache:
-          keys:
-          - v1-deps-{{ checksum "boilerplate/package-lock.json" }}
-          - v1-deps-
+          keys: npm-v1-{{ checksum "boilerplate/package-lock.json" }}-{{ arch }}
+
+      - restore_cache:
+          keys: node-v1-{{ checksum "boilerplate/package.json" }}-{{ arch }}
 
       - run: npm install
 
       - save_cache:
-          key: v1-deps-{{ checksum "boilerplate/package-lock.json" }}
+          key: npm-v1-{{ checksum "boilerplate/package-lock.json" }}-{{ arch }}
           paths:
-          - node_modules
+            - ~/.cache/npm
+      
+      - save_cache:
+          key: node-v1-{{ checksum "boilerplate/package.json" }}-{{ arch }}
+          paths:
+            - node_modules
 
       - persist_to_workspace:
-          root: .
+          root: ~/repo
           paths:
-            - '*'
+            - node_modules
         
   android-alpha:
     working_directory: ~/repo/android
