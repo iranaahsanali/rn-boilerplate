@@ -14,7 +14,13 @@
 # update_fastlane
 
 platform :ios do
+  before_all do
+    setup_circle_ci
+  end
   lane :beta do
     increment_build_number(xcodeproj: "boilerplate.xcodeproj")
     build_app(workspace: "boilerplate.xcworkspace", scheme: "boilerplate", export_method: "development", silent: "true", output_directory: "./build_ipa")
+  lane :prod do
+      increment_build_number(xcodeproj: "boilerplate.xcodeproj")
+      build_app(workspace: "boilerplate.xcworkspace", scheme: "boilerplate", export_method: "development", silent: "true", output_directory: "./build_ipa")
   end]
