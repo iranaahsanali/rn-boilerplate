@@ -101,7 +101,7 @@ jobs:
             bundle exec fastlane beta
 
   ios-beta:
-    working_directory:~/boilerplate
+    working_directory: ~/boilerplate
     macos:
       xcode: 12.5.0
     environment:
@@ -162,9 +162,9 @@ jobs:
 workflows:
   node-android-ios:
     jobs:
-      -android-hold:
+      - android-hold: 
         type: approval
-      -ios-hold:
+      - ios-hold:
         type: approval
       - node:
           filters:
