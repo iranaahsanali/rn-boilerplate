@@ -38,19 +38,19 @@ jobs:
           at: ~/repo
 
       - restore_cache:
-          key: bundle-v1-{{ checksum "~/repo/android/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
 
       - run: cd boilerplate/android; bundle install
 
       - save_cache:
-          key: bundle-v1-{{ checksum "~/repo/android/Gemfile.lock" }}-{{ arch }}
+          key: bundle-v1-{{ checksum "~/boilerplate/android/Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
 
       - run:
           name: fastlane android alpha
           command: |
-            bundle exec fastlane alpha
+            cd boilerplate/android && bundle exec fastlane alpha
 
       - store_artifacts:
           path: android/app/build/outputs/apk/release/app-release.apk
