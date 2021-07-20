@@ -1,9 +1,9 @@
 version: 2.1
 jobs:
   node:
-    working_directory: ~/demo-react-native
+    working_directory: ~/repo
     docker:
-      - image: cimg/node:12.16
+      - image: cimg/node:15.3.0
 
     steps:
       - checkout
