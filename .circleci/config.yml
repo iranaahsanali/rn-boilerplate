@@ -164,8 +164,18 @@ workflows:
     jobs:
       - android-hold: 
         type: approval
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore: /.*/
       - ios-hold:
         type: approval
+        filters:
+          tags:
+            only: /^v.*/
+          branches:
+            ignore: /.*/
       - node:
           filters:
             tags:
