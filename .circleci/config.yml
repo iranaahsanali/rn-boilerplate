@@ -53,6 +53,7 @@ jobs:
           command: |
             git config 'user.email' 'circle-ci@gmail.com'
             git config 'user.name' 'Circle CI' 
+            sudo chown -R $(whoami) boilerplate
             cd boilerplate/android
             bundle exec fastlane alpha
             bundle exec fastlane gitpush
@@ -233,8 +234,6 @@ workflows:
             branches:
               ignore: /.*/
       - android-alpha:
-          requires:
-            - node
           filters:
             tags:
               only: /^v.*/
