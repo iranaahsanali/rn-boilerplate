@@ -17,6 +17,9 @@ default_platform(:android)
 
 platform :android do
   lane :alpha do
+    gradle(task: "clean assembleRelease")
+  end
+  lane :gitpush do
     # Get the last version code and increment it.
     path = '../app/build.gradle'
     re = /versionCode\s+(\d+)/ 
@@ -29,9 +32,6 @@ platform :android do
     f.write(s)
     f.close
     # Code Ended.
-    gradle(task: "clean assembleRelease")
-  end
-  lane :gitpush do
     git_add
     git_commit(path: "*", message: "Android Version Incremented.")
     push_to_git_remote

@@ -55,8 +55,8 @@ jobs:
             git config 'user.name' 'Circle CI' 
             sudo chown -R $(whoami) boilerplate
             cd boilerplate/android
-            bundle exec fastlane alpha
             bundle exec fastlane gitpush
+            bundle exec fastlane alpha
 
       - store_artifacts:
           path: android/app/build/outputs/apk/release/app-release.apk
