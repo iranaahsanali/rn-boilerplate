@@ -51,7 +51,11 @@ jobs:
       - run:
           name: fastlane android alpha
           command: |
-            cd boilerplate/android && bundle exec fastlane alpha
+            git config 'user.email' 'circle-ci@gmail.com'
+            git config 'user.name' 'Circle CI' 
+            cd boilerplate/android
+            bundle exec fastlane alpha
+            bundle exec fastlane gitpush
 
       - store_artifacts:
           path: android/app/build/outputs/apk/release/app-release.apk
