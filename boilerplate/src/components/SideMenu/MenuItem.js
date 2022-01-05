@@ -20,7 +20,6 @@ export const MenuTopHeader = props => {
                 title={props.name ? props.name : 'Ahsan Ali'}
                 marginTop={40}
                 marginLeft={15}
-                fontFamily={'Roboto-Bold'}
             />
         </View>
     );
